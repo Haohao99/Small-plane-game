@@ -1,25 +1,25 @@
 package com.tarena.fly;
 
 /**
- * 子弹类:是飞行物
+ * Bullets: FlyingObject
  */
-public class Bullet extends FlyingObject {
+public class Bullet extends FlyingObject  {
 	private int speed = 3;  //移动的速度
 	
-	/** 初始化数据 */
+	/** Initial data */
 	public Bullet(int x,int y){
 		this.x = x;
 		this.y = y;
 		this.image = ShootGame.bullet;
 	}
 
-	/** 移动 */
+	/** move */
 	@Override
 	public void step(){   
 		y-=speed;
 	}
 
-	/** 越界处理 */
+	/** isOutofBounds */
 	@Override
 	public boolean outOfBounds() {
 		return y<-height;

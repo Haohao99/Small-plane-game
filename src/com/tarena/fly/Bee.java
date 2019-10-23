@@ -2,13 +2,13 @@ package com.tarena.fly;
 
 import java.util.Random;
 
-/** 蜜蜂 */
+/** Bees */
 public class Bee extends FlyingObject implements Award{
-	private int xSpeed = 1;   //x坐标移动速度
-	private int ySpeed = 2;   //y坐标移动速度
-	private int awardType;    //奖励类型
+	private int xSpeed = 1;   //x axis speed
+	private int ySpeed = 2;   //y axis speed
+	private int awardType;    
 	
-	/** 初始化数据 */
+	/** initial data */
 	public Bee(){
 		this.image = ShootGame.bee;
 		width = image.getWidth();
@@ -16,21 +16,21 @@ public class Bee extends FlyingObject implements Award{
 		y = -height;
 		Random rand = new Random();
 		x = rand.nextInt(ShootGame.WIDTH - width);
-		awardType = rand.nextInt(2);   //初始化时给奖励
+		awardType = rand.nextInt(2);   //randomly choose awardtype
 	}
 	
-	/** 获得奖励类型 */
+	/** get award type */
 	public int getType(){
 		return awardType;
 	}
 
-	/** 越界处理 */
+	/** isOutofBounds */
 	@Override
 	public boolean outOfBounds() {
 		return y>ShootGame.HEIGHT;
 	}
 
-	/** 移动，可斜着飞 */
+	/** flying sideways  */
 	@Override
 	public void step() {      
 		x += xSpeed;
